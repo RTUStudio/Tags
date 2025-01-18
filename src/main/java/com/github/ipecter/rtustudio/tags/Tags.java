@@ -4,7 +4,6 @@ import com.github.ipecter.rtustudio.tags.commands.MainCommand;
 import com.github.ipecter.rtustudio.tags.loader.*;
 import kr.rtuserver.framework.bukkit.api.RSPlugin;
 import lombok.Getter;
-import org.bukkit.NamespacedKey;
 
 @Getter
 public class Tags extends RSPlugin {

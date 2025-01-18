@@ -1,9 +1,9 @@
 package com.github.ipecter.rtustudio.tags.loader;
 
 import com.github.ipecter.rtustudio.tags.Tags;
+import com.github.ipecter.rtustudio.tags.tag.ResourceLocation;
 import com.github.ipecter.rtustudio.tags.tag.Tag;
 import com.github.ipecter.rtustudio.tags.tag.TagType;
-import com.github.ipecter.rtustudio.tags.tag.ResourceLocation;
 import com.github.ipecter.rtustudio.tags.util.JsonUtil;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -30,13 +30,7 @@ public abstract class Loader {
 
     @Getter
     private final Map<String, List<ResourceLocation>> tags = new HashMap<>();
-
-
-    public List<ResourceLocation> get(NamespacedKey namespacedKey) {
-        if (namespacedKey.getNamespace().equalsIgnoreCase("minecraft")) {
-            return getBukkitTag(namespacedKey.getNamespace(), namespacedKey.getKey()).stream().map(s -> new ResourceLocation(s, true)).toList();
-        } else return tags.get(namespacedKey.toString());
-    }
+    private final Map<String, List<Tag>> cache = new HashMap<>();
 
     public Loader(Tags plugin) {
         this.plugin = plugin;
@@ -48,7 +42,11 @@ public abstract class Loader {
         }
     }
 
-    private final Map<String, List<Tag>> cache = new HashMap<>();
+    public List<ResourceLocation> get(NamespacedKey namespacedKey) {
+        if (namespacedKey.getNamespace().equalsIgnoreCase("minecraft")) {
+            return getBukkitTag(namespacedKey.getNamespace(), namespacedKey.getKey()).stream().map(s -> new ResourceLocation(s, true)).toList();
+        } else return tags.get(namespacedKey.toString());
+    }
 
     void load(File file) {
         Map<String, JsonObject> json = getJson(file);

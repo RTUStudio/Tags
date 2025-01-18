@@ -3,7 +3,6 @@ package com.github.ipecter.rtustudio.tags.tag;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.ToString;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;

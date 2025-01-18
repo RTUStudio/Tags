@@ -5,7 +5,6 @@ import com.github.ipecter.rtustudio.tags.tag.TagType;
 import org.bukkit.Bukkit;
 import org.bukkit.Fluid;
 import org.bukkit.NamespacedKey;
-import org.bukkit.entity.EntityType;
 
 import java.util.List;
 
