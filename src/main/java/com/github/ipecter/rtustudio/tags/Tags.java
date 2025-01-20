@@ -8,6 +8,7 @@ import lombok.Getter;
 @Getter
 public class Tags extends RSPlugin {
 
+    @Getter
     private static Tags instance;
 
     private BiomeLoader biome;
@@ -22,6 +23,7 @@ public class Tags extends RSPlugin {
         instance = this;
         initLoader();
         registerCommand(new MainCommand(this), true);
+
     }
 
     public void initLoader() {
