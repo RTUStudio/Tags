@@ -14,7 +14,7 @@ public class BiomeLoader extends Loader {
 
     public BiomeLoader(Tags plugin) {
         super(plugin);
-        framework = LightDI.getBean(Framework.class);
+        framework = plugin.getFramework();
     }
 
     @Override
