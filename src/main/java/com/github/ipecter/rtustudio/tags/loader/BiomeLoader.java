@@ -10,11 +10,8 @@ import java.util.List;
 
 public class BiomeLoader extends Loader {
 
-    private final Framework framework;
-
     public BiomeLoader(Tags plugin) {
         super(plugin);
-        framework = plugin.getFramework();
     }
 
     @Override
@@ -24,6 +21,6 @@ public class BiomeLoader extends Loader {
 
     @Override
     public List<String> getBukkitTag(String namespace, String key) {
-        return framework.getNMS().biome().getBiomeTag(new NamespacedKey(namespace, key).asString());
+        return getPlugin().getFramework().getNMS().biome().getBiomeTag(new NamespacedKey(namespace, key).asString());
     }
 }
