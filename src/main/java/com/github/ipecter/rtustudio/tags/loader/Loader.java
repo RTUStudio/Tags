@@ -12,6 +12,7 @@ import kr.rtuserver.framework.bukkit.api.utility.platform.FileResource;
 import lombok.Getter;
 import org.bukkit.NamespacedKey;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.io.File;
 import java.io.IOException;
@@ -42,7 +43,9 @@ public abstract class Loader {
         }
     }
 
-    public List<ResourceLocation> get(NamespacedKey namespacedKey) {
+    @NotNull
+    public List<ResourceLocation> get(@Nullable NamespacedKey namespacedKey) {
+        if (namespacedKey == null) return List.of();
         if (namespacedKey.getNamespace().equalsIgnoreCase("minecraft")) {
             return getBukkitTag(namespacedKey.getNamespace(), namespacedKey.getKey()).stream().map(s -> new ResourceLocation(s, true)).toList();
         } else return tags.get(namespacedKey.toString());
