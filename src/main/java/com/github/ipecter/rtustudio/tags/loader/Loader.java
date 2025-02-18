@@ -48,7 +48,7 @@ public abstract class Loader {
         if (namespacedKey == null) return List.of();
         if (namespacedKey.getNamespace().equalsIgnoreCase("minecraft")) {
             return getBukkitTag(namespacedKey.getNamespace(), namespacedKey.getKey()).stream().map(s -> new ResourceLocation(s, true)).toList();
-        } else return tags.get(namespacedKey.toString());
+        } else return tags.getOrDefault(namespacedKey.toString(), List.of());
     }
 
     void load(File file) {
