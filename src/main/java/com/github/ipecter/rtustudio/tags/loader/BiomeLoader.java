@@ -2,8 +2,6 @@ package com.github.ipecter.rtustudio.tags.loader;
 
 import com.github.ipecter.rtustudio.tags.Tags;
 import com.github.ipecter.rtustudio.tags.tag.TagType;
-import kr.rtuserver.cdi.LightDI;
-import kr.rtuserver.framework.bukkit.api.core.Framework;
 import org.bukkit.NamespacedKey;
 
 import java.util.List;

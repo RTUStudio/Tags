@@ -64,9 +64,9 @@ public abstract class Loader {
             Tag tag = getTag(key, element);
             tags.add(tag);
         }
-        cache.put(com.google.common.io.Files.getNameWithoutExtension(file.getName()), tags);
+        String namespace = com.google.common.io.Files.getNameWithoutExtension(file.getName());
+        cache.put(namespace, tags);
         for (Tag tag : tags) {
-            String namespace = com.google.common.io.Files.getNameWithoutExtension(file.getName());
             List<ResourceLocation> data = loadTag(tag.getPath(), tag.getValues());
             this.tags.put(namespace + ":" + tag.getPath(), data);
         }
@@ -136,7 +136,7 @@ public abstract class Loader {
         try (Stream<Path> stream = Files.walk(folder.toPath())) {
             List<Path> list = stream.filter(Files::isRegularFile).toList();
             for (Path path : list) {
-                String name = path.toString().replace(folder + "/", "").replace(".json", "");
+                String name = com.google.common.io.Files.getNameWithoutExtension(folder.toPath().relativize(path).toString());
                 JsonObject json = JsonUtil.toJson(path.toFile());
                 if (json != null) result.put(name, json);
             }

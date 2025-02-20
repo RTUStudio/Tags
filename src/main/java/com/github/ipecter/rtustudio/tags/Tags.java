@@ -2,9 +2,7 @@ package com.github.ipecter.rtustudio.tags;
 
 import com.github.ipecter.rtustudio.tags.commands.MainCommand;
 import com.github.ipecter.rtustudio.tags.loader.*;
-import kr.rtuserver.cdi.LightDI;
 import kr.rtuserver.framework.bukkit.api.RSPlugin;
-import kr.rtuserver.framework.bukkit.api.core.Framework;
 import lombok.Getter;
 
 @Getter
