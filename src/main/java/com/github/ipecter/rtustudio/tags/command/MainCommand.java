@@ -1,4 +1,4 @@
-package com.github.ipecter.rtustudio.tags.commands;
+package com.github.ipecter.rtustudio.tags.command;
 
 import com.github.ipecter.rtustudio.tags.Tags;
 import kr.rtuserver.framework.bukkit.api.command.RSCommand;

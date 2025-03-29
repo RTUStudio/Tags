@@ -17,7 +17,7 @@ ticks-per:
   axolotl-spawns: 1
   ambient-spawns: 1
   autosave: 6000
-aliases: now-in-commands.yml
+aliases: now-in-command.yml
 settings:
   warn-on-overload: true
   permissions-file: permissions.yml

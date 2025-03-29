@@ -1,6 +1,6 @@
 package com.github.ipecter.rtustudio.tags;
 
-import com.github.ipecter.rtustudio.tags.commands.MainCommand;
+import com.github.ipecter.rtustudio.tags.command.MainCommand;
 import com.github.ipecter.rtustudio.tags.loader.*;
 import kr.rtuserver.framework.bukkit.api.RSPlugin;
 import lombok.Getter;
