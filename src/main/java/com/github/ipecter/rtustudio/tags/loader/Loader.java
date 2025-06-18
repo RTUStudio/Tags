@@ -8,7 +8,7 @@ import com.github.ipecter.rtustudio.tags.util.JsonUtil;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
-import kr.rtuserver.framework.bukkit.api.utility.platform.FileResource;
+import kr.rtuserver.framework.bukkit.api.platform.FileResource;
 import lombok.Getter;
 import org.bukkit.NamespacedKey;
 import org.jetbrains.annotations.NotNull;

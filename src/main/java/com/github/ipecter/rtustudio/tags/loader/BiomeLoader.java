@@ -19,6 +19,6 @@ public class BiomeLoader extends Loader {
 
     @Override
     public List<String> getBukkitTag(String namespace, String key) {
-        return getPlugin().getFramework().getNMS().biome().getTag(new NamespacedKey(namespace, key).asString());
+        return getPlugin().getFramework().getNMS().getBiome().getTag(new NamespacedKey(namespace, key).asString());
     }
 }
