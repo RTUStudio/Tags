@@ -23,7 +23,6 @@ public class Tags extends RSPlugin {
         instance = this;
         initLoader();
         registerCommand(new MainCommand(this), true);
-
     }
 
     public void initLoader() {
