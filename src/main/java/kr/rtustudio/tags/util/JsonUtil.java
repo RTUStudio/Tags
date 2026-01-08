@@ -1,4 +1,4 @@
-package com.github.ipecter.rtustudio.tags.util;
+package kr.rtustudio.tags.util;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;

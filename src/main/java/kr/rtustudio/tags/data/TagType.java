@@ -1,4 +1,4 @@
-package com.github.ipecter.rtustudio.tags.tag;
+package kr.rtustudio.tags.data;
 
 public enum TagType {
     BIOME,
