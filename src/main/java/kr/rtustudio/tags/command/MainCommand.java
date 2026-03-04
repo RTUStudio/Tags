@@ -1,7 +1,7 @@
 package kr.rtustudio.tags.command;
 
+import kr.rtustudio.framework.bukkit.api.command.CommandArgs;
 import kr.rtustudio.framework.bukkit.api.command.RSCommand;
-import kr.rtustudio.framework.bukkit.api.command.RSCommandData;
 import kr.rtustudio.tags.Tags;
 
 public class MainCommand extends RSCommand<Tags> {
@@ -11,7 +11,7 @@ public class MainCommand extends RSCommand<Tags> {
     }
 
     @Override
-    protected void reload(RSCommandData data) {
+    protected void reload(CommandArgs data) {
         getPlugin().initLoader();
     }
 }

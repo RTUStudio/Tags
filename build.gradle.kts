@@ -3,6 +3,7 @@ plugins {
     id("io.freefair.lombok") version "8.14.2"
     id("com.gradleup.shadow") version "9.0.2"
     id("xyz.jpenilla.run-paper") version "3.0.2"
+    id("io.papermc.paperweight.userdev") version "2.0.0-beta.18"
 }
 
 val project_version: String by project
@@ -58,6 +59,8 @@ dependencies {
     }
     compileOnly(plugin_api)
 
+    paperweight.paperDevBundle("1.21.1-R0.1-SNAPSHOT")
+
     // RSFramework
     compileOnly("kr.rtustudio:framework-api:${rsf_version}")
     compileOnly(fileTree("libs") { include("*.jar") })
@@ -112,7 +115,7 @@ tasks.processResources {
     )
     inputs.properties(props)
     filteringCharset = "UTF-8"
-    filesMatching("plugin.yml") {
+    filesMatching("paper-plugin.yml") {
         expand(props)
     }
 }
