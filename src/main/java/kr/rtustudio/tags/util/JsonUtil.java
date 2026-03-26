@@ -1,4 +1,4 @@
-package kr.rtustudio.tags.util;
+package kr.rtustudio.tags.utility;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;

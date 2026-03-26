@@ -11,7 +11,7 @@ public class MainCommand extends RSCommand<Tags> {
     }
 
     @Override
-    protected void reload(CommandArgs data) {
-        getPlugin().initLoader();
+    protected void reload(CommandArgs args) {
+        plugin.initLoader();
     }
 }

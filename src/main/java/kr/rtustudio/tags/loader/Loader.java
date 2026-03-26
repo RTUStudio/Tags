@@ -1,10 +1,13 @@
 package kr.rtustudio.tags.loader;
 
+import it.unimi.dsi.fastutil.objects.ObjectArrayList;
+import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
+
 import kr.rtustudio.tags.Tags;
 import kr.rtustudio.tags.data.Identifier;
 import kr.rtustudio.tags.data.Tag;
 import kr.rtustudio.tags.data.TagType;
-import kr.rtustudio.tags.util.JsonUtil;
+import kr.rtustudio.tags.utility.JsonUtil;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
@@ -30,8 +33,8 @@ public abstract class Loader {
     private final Tags plugin;
 
     @Getter
-    private final Map<String, List<Identifier>> tags = new HashMap<>();
-    private final Map<String, List<Tag>> cache = new HashMap<>();
+    private final Map<String, List<Identifier>> tags = new Object2ObjectOpenHashMap<>();
+    private final Map<String, List<Tag>> cache = new Object2ObjectOpenHashMap<>();
 
     public Loader(Tags plugin) {
         this.plugin = plugin;
@@ -61,7 +64,7 @@ public abstract class Loader {
         Map<String, JsonObject> json = getJson(file);
         if (json == null) return;
 
-        List<Tag> tags = new ArrayList<>();
+        List<Tag> tags = new ObjectArrayList<>();
         String namespace = com.google.common.io.Files.getNameWithoutExtension(file.getName());
         for (String key : json.keySet()) {
             JsonElement element = json.get(key).get("values");
@@ -101,7 +104,7 @@ public abstract class Loader {
     }
 
     private List<Identifier> loadTag(String identifier, List<Identifier> list) {
-        List<Identifier> result = new ArrayList<>();
+        List<Identifier> result = new ObjectArrayList<>();
         for (Identifier data : list) {
             if (data.isTag()) {
                 String namespace = data.namespace().substring(1);
@@ -136,7 +139,7 @@ public abstract class Loader {
     }
 
     private Map<String, JsonObject> getJson(File file) {
-        Map<String, JsonObject> result = new HashMap<>();
+        Map<String, JsonObject> result = new Object2ObjectOpenHashMap<>();
 
         File folder = FileResource.createFolder(file + "/" + getType().name().toLowerCase());
 

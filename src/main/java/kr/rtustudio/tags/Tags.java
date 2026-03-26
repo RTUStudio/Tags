@@ -23,8 +23,12 @@ public class Tags extends RSPlugin {
 
 
     @Override
-    public void enable() {
+    protected void load() {
         instance = this;
+    }
+
+    @Override
+    protected void enable() {
         initLoader();
         registerCommand(new MainCommand(this), true);
     }

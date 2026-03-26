@@ -1,12 +1,14 @@
 package kr.rtustudio.tags.data;
 
+import it.unimi.dsi.fastutil.objects.ObjectArrayList;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public record Tag(String namespace, String path, List<Tag> tags, List<Identifier> values) {
 
     public Tag(String namespace, String path) {
-        this(namespace, path, new ArrayList<>(), new ArrayList<>());
+        this(namespace, path, new ObjectArrayList<>(), new ObjectArrayList<>());
     }
 
     public Tag(String path) {
