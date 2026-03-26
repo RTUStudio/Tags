@@ -1,17 +1,16 @@
 package kr.rtustudio.tags.loader;
 
-import it.unimi.dsi.fastutil.objects.ObjectArrayList;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonPrimitive;
 import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
-
+import it.unimi.dsi.fastutil.objects.ObjectArrayList;
+import kr.rtustudio.framework.bukkit.api.platform.FileResource;
 import kr.rtustudio.tags.Tags;
 import kr.rtustudio.tags.data.Identifier;
 import kr.rtustudio.tags.data.Tag;
 import kr.rtustudio.tags.data.TagType;
 import kr.rtustudio.tags.utility.JsonUtil;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonPrimitive;
-import kr.rtustudio.framework.bukkit.api.platform.FileResource;
 import lombok.Getter;
 import org.bukkit.NamespacedKey;
 import org.jetbrains.annotations.NotNull;
@@ -21,8 +20,6 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Stream;

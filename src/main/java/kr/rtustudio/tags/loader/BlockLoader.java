@@ -6,7 +6,6 @@ import kr.rtustudio.tags.data.TagType;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
-import org.bukkit.entity.EntityType;
 
 import java.util.List;
 

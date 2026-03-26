@@ -2,11 +2,7 @@ package kr.rtustudio.tags;
 
 import kr.rtustudio.framework.bukkit.api.RSPlugin;
 import kr.rtustudio.tags.command.MainCommand;
-import kr.rtustudio.tags.loader.BiomeLoader;
-import kr.rtustudio.tags.loader.BlockLoader;
-import kr.rtustudio.tags.loader.EntityTypeLoader;
-import kr.rtustudio.tags.loader.FluidLoader;
-import kr.rtustudio.tags.loader.ItemLoader;
+import kr.rtustudio.tags.loader.*;
 import lombok.Getter;
 
 @Getter

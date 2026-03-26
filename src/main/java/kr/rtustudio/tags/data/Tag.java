@@ -2,7 +2,6 @@ package kr.rtustudio.tags.data;
 
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public record Tag(String namespace, String path, List<Tag> tags, List<Identifier> values) {
