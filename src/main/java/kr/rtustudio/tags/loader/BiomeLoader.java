@@ -4,6 +4,7 @@ import kr.rtustudio.tags.Tags;
 import kr.rtustudio.tags.data.Identifier;
 import kr.rtustudio.tags.data.TagType;
 import org.bukkit.NamespacedKey;
+import org.bukkit.Registry;
 
 import java.util.List;
 
@@ -28,5 +29,10 @@ public class BiomeLoader extends Loader {
                 .stream()
                 .map(Identifier::new)
                 .toList();
+    }
+
+    @Override
+    public boolean isValid(NamespacedKey key) {
+        return Registry.BIOME.get(key) != null;
     }
 }

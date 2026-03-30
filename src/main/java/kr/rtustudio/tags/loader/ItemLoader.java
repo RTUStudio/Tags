@@ -29,4 +29,10 @@ public class ItemLoader extends Loader {
                 .map(Identifier::new)
                 .toList();
     }
+
+    @Override
+    public boolean isValid(NamespacedKey key) {
+        org.bukkit.Material mat = org.bukkit.Material.matchMaterial(key.toString());
+        return mat != null && mat.isItem();
+    }
 }

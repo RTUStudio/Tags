@@ -1,0 +1,4 @@
+tags:
+  name: "Tags"
+  description: "Tags management command."
+  usage: "/tags"

@@ -6,6 +6,8 @@ import kr.rtustudio.tags.data.TagType;
 import org.bukkit.Bukkit;
 import org.bukkit.Fluid;
 import org.bukkit.NamespacedKey;
+import org.bukkit.Registry;
+import org.bukkit.Tag;
 
 import java.util.List;
 
@@ -22,11 +24,16 @@ public class FluidLoader extends Loader {
 
     @Override
     public List<Identifier> getBukkitTag(NamespacedKey key) {
-        org.bukkit.Tag<Fluid> tag = Bukkit.getTag("fluids", key, Fluid.class);
+        Tag<Fluid> tag = Bukkit.getTag("fluids", key, Fluid.class);
         if (tag == null) return List.of();
         return tag.getValues().stream()
                 .map(Fluid::getKey)
                 .map(Identifier::new)
                 .toList();
+    }
+
+    @Override
+    public boolean isValid(NamespacedKey key) {
+        return Registry.FLUID.get(key) != null;
     }
 }

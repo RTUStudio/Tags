@@ -73,8 +73,12 @@ public abstract class Loader {
         }
         cache.put(namespace, tags);
         for (Tag tag : tags) {
-            List<Identifier> data = loadTag(tag.path(), tag.values());
-            this.tags.put(namespace + ":" + tag.path(), data);
+            try {
+                List<Identifier> data = loadTag(tag.path(), tag.values());
+                this.tags.put(namespace + ":" + tag.path(), data);
+            } catch (IllegalArgumentException e) {
+                plugin.getLogger().warning("Failed to load tag " + namespace + ":" + tag.path() + " - " + e.getMessage());
+            }
         }
         cache.clear();
     }
@@ -129,6 +133,10 @@ public abstract class Loader {
                 }
                 if (!expanded) result.add(data);
             } else {
+                NamespacedKey key = data.toBukkit();
+                if (key != null && data.required() && !isValid(key)) {
+                    throw new IllegalArgumentException("Missing required entry: " + data.asString());
+                }
                 result.add(data);
             }
         }
@@ -157,6 +165,8 @@ public abstract class Loader {
     public abstract TagType getType();
 
     public abstract List<Identifier> getBukkitTag(NamespacedKey key);
+
+    public abstract boolean isValid(NamespacedKey key);
 
     private Identifier parseIdentifier(String raw, boolean required) {
         boolean tagRef = raw.startsWith("#");
